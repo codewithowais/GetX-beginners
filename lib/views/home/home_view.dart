@@ -17,6 +17,18 @@ class HomeView extends StatelessWidget {
           style: TextStyle(fontSize: 33),
         ));
       }),
+      // GetX<HomeController>(builder: (cahomeControlca) {
+      //   return Center(
+      //       child: Text(
+      //     "${cahomeControlca.counterValue.value}",
+      //     style: TextStyle(fontSize: 33),
+      //   ));
+      // }),
+      // Obx(() => Center(
+      //         child: Text(
+      //       "${homeControl.counterValue.value}",
+      //       style: TextStyle(fontSize: 33),
+      //     ))),
       floatingActionButton: FloatingActionButton(
         onPressed: () {
           homeControl.addValue();

@@ -6,6 +6,7 @@ class HomeController extends GetxController {
 
   // addValue() {
   addValue() {
+    // counterValue.value++;
     counterValue++;
     update();
     print(counterValue);
