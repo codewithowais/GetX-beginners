@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:get/get.dart';
 import 'package:statemanagementdummy/views/home/home_view.dart';
 
 void main() {
@@ -15,6 +16,6 @@ class MyApp extends StatefulWidget {
 class _MyAppState extends State<MyApp> {
   @override
   Widget build(BuildContext context) {
-    return MaterialApp(home: HomeView());
+    return GetMaterialApp(home: HomeView());
   }
 }
