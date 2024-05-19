@@ -33,12 +33,14 @@ class HomeView extends StatelessWidget {
             //       textComponentValue:"${homeControl.counterValue.value}",
             //     ))),
             ElevatedButton(
-                onPressed: () {
+                onPressed: () async {
                   // Navigator.push(context,
                   //     MaterialPageRoute(builder: (context) => AddView()));
                   // Get.off(() => AddView());
                   // Get.offAll(() => AddView());
-                  Get.to(() => AddView());
+                  var abc =
+                      await Get.to(() => AddView(), arguments: "Shahzeb naqvi");
+                  print(abc);
                   // Get.offUntil( AddView());
                 },
                 child: Text("Navigate"))

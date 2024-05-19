@@ -13,10 +13,12 @@ class AddView extends StatelessWidget {
       body: Center(
           child: Column(
         children: [
-          TextComponent(textComponentValue: "${homeControl.counterValue}"),
+          TextComponent(
+              textComponentValue:
+                  "${homeControl.counterValue} ${Get.arguments}"),
           ElevatedButton(
               onPressed: () {
-                Get.back();
+                Get.back(result: "I am Back");
               },
               child: Text("back from this"))
         ],
