@@ -16,12 +16,16 @@ class HomeView extends StatelessWidget {
         child: Column(
           mainAxisAlignment: MainAxisAlignment.center,
           children: [
+            // simple statemanagement
             GetBuilder<HomeController>(builder: (cahomeControlca) {
               return Center(
                   child: TextComponent(
                       textComponentValue: "${cahomeControlca.counterValue}"));
             }),
-
+            // reactive statemanagement
+            TextField(
+              controller: homeControl.amountValue,
+            ),
             // GetX<HomeController>(builder: (cahomeControlca) {
             //   return Center(
             //       child: TextComponent(
@@ -38,12 +42,26 @@ class HomeView extends StatelessWidget {
                   //     MaterialPageRoute(builder: (context) => AddView()));
                   // Get.off(() => AddView());
                   // Get.offAll(() => AddView());
-                  var abc =
-                      await Get.to(() => AddView(), arguments: "Shahzeb naqvi");
-                  print(abc);
+                  // var abc =
+                  //     await Get.to(() => AddView(), arguments: "Shahzeb naqvi");
+                  // print(abc);
                   // Get.offUntil( AddView());
+                  homeControl.addAmount();
                 },
-                child: Text("Navigate"))
+                child: Text("credit")),
+            ElevatedButton(
+                onPressed: () async {
+                  // Navigator.push(context,
+                  //     MaterialPageRoute(builder: (context) => AddView()));
+                  // Get.off(() => AddView());
+                  // Get.offAll(() => AddView());
+                  // var abc =
+                  //     await Get.to(() => AddView(), arguments: "Shahzeb naqvi");
+                  // print(abc);
+                  // Get.offUntil( AddView());
+                  homeControl.subAmount();
+                },
+                child: Text("Debit"))
           ],
         ),
       ),
