@@ -5,6 +5,7 @@ class HomeController extends GetxController {
   // var counterValue = 0.obs;
   int counterValue = 0;
   TextEditingController amountValue = TextEditingController();
+  List historyData = [];
   // addValue() {
   addValue() {
     // counterValue.value++;
@@ -16,15 +17,21 @@ class HomeController extends GetxController {
   addAmount() {
     print(amountValue.text);
     counterValue = counterValue + int.parse(amountValue.text);
-    update();
     Get.snackbar("Amount Status", "Amount Added",
         snackPosition: SnackPosition.BOTTOM);
+    historyData.add({"amount": "${amountValue.text}", "type": "Credit"});
+    update();
+
+    print(historyData);
     // counterValue=
   }
 
   subAmount() {
     print(amountValue.text);
     counterValue = counterValue - int.parse(amountValue.text);
+    historyData.add({"amount": "${amountValue.text}", "type": "Debit"});
+    print(historyData);
+
     update();
     // counterValue=
   }

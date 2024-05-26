@@ -2,6 +2,7 @@ import 'package:flutter/material.dart';
 import 'package:get/get.dart';
 import 'package:statemanagementdummy/components/text_component.dart';
 import 'package:statemanagementdummy/controllers/home/home_controller.dart';
+import 'package:statemanagementdummy/utils/color_constraints.dart';
 import 'package:statemanagementdummy/views/add/add_view.dart';
 
 class HomeView extends StatelessWidget {
@@ -61,7 +62,29 @@ class HomeView extends StatelessWidget {
                   // Get.offUntil( AddView());
                   homeControl.subAmount();
                 },
-                child: Text("Debit"))
+                child: Text("Debit")),
+            GetBuilder<HomeController>(builder: (contexta) {
+              return ListView.builder(
+                  physics: NeverScrollableScrollPhysics(),
+                  shrinkWrap: true,
+                  itemCount: homeControl.historyData.length,
+                  itemBuilder: (context, index) {
+                    return ListTile(
+                      title:
+                          Text("${homeControl.historyData[index]["amount"]}"),
+                      trailing:
+                          homeControl.historyData[index]["type"] == "Debit"
+                              ? Icon(
+                                  Icons.arrow_downward_outlined,
+                                  color: ColorContraint.debitColor,
+                                )
+                              : Icon(
+                                  Icons.arrow_upward_outlined,
+                                  color: ColorContraint.creditColor,
+                                ),
+                    );
+                  });
+            })
           ],
         ),
       ),
